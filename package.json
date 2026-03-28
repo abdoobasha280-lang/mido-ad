@@ -1,0 +1,16 @@
+{
+  "name": "mido-ai-telecom",
+  "version": "1.0.0",
+  "description": "MIDO AI Telecom Services Platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "axios": "^1.6.2",
+    "crypto": "^1.0.1",
+    "serverless-http": "^3.2.0"
+  }
+}
