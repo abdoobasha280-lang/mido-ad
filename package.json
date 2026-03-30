@@ -1,0 +1,11 @@
+{
+  "name": "mido-ad-platform",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "axios": "^1.6.2",
+    "serverless-http": "^3.2.0"
+  }
+}
