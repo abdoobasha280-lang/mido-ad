@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIDO NET - فوازير أورنج</title>
+    <style>
+        /* إعدادات الخلفية العامة والتصميم الزجاجي */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://i.postimg.cc/zvQsfRp6/0b2e491cf363fb13fe72f199a1c0cde1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* كارت التصميم الزجاجي */
+        .container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #ff7900; /* لون أورنج مميز */
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        input:focus {
+            border-color: #ff7900;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* زر الإرسال المجسم التفاعلي */
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff7900, #ff9f43);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 121, 0, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 121, 0, 0.6);
+        }
+
+        .btn-submit:active {
+            transform: translateY(1px);
+        }
+
+        /* حقوق المطور في الأسفل */
+        .footer-credits {
+            margin-top: 25px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .footer-credits a {
+            color: #ff7900;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* تصميم نافذة الـ Pop-up (Modal) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: rgba(30, 30, 30, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 15px;
+            width: 85%;
+            max-width: 350px;
+            text-align: center;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .modal-text {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .modal-btn {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #ff7900;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>MIDO NET - فوازير رمضان</h2>
+        
+        <div class="input-group">
+            <label for="phone">رقم الهاتف (Orange)</label>
+            <input type="tel" id="phone" placeholder="012xxxxxxx" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">كلمة المرور (Password)</label>
+            <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+
+        <button class="btn-submit" id="submitBtn">تفعيل الفوازير تلقائياً</button>
+
+        <div class="footer-credits">
+            حقوق التطوير محفوظة لـ <a href="https://t.me/AMI_EG" target="_blank">Abdelhamid (@AMI_EG)</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="statusModal">
+        <div class="modal-box">
+            <div class="modal-icon" id="modalIcon">⏳</div>
+            <div class="modal-text" id="modalMessage">جاري معالجة طلبك، يرجى الانتظار...</div>
+            <button class="modal-btn" id="modalCloseBtn" style="display:none;">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        const proxyUrl = "https://corsproxy.io/?"; // بروكسي لتفادي حظر الـ CORS للمتصفح
+
+        document.getElementById('submitBtn').addEventListener('click', async () => {
+            const dial = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!dial || !password) {
+                showPopup("❌", "يرجى إدخال الرقم وكلمة المرور أولاً!");
+                return;
+            }
+
+            // إظهار نافذة الانتظار
+            showLoadingPopup();
+
+            try {
+                // 1. تسجيل الدخول (Sign In)
+                const signInUrl = proxyUrl + encodeURIComponent("https://services.orange.eg/SignIn.svc/SignInUser");
+                const signInResp = await fetch(signInUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'User-Agent': 'okhttp/4.10.0' },
+                    body: JSON.stringify({
+                        "appVersion": "9.0.1",
+                        "channel": { "ChannelName": "MobinilAndMe", "Password": "ig3yh*mk5l42@oj7QAR8yF" },
+                        "dialNumber": dial, "isAndroid": true, "lang": "ar", "password": password
+                    })
+                });
+                
+                const signInData = await signInResp.json();
+                const accessToken = signInData?.SignInUserResult?.AccessToken;
+
+                if (!accessToken) {
+                    showPopup("❌", "رقم الهاتف أو كلمة المرور خاطئة!");
+                    return;
+                }
+
+                // 2. توليد التوكن (Generate Token)
+                const genTokenUrl = proxyUrl + encodeURIComponent("https://services.orange.eg/APIs/Profile/api/BasicAuthentication/Generate");
+                const genTokenResp = await fetch(genTokenUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Token': accessToken, 'AppVersion': '9.0.1', 'OsVersion': '13', 'IsAndroid': 'true', 'IsEasyLogin': 'false'
+                    },
+                    body: JSON.stringify({
+                        "ChannelName": "MobinilAndMe", "ChannelPassword": "ig3yh*mk5l42@oj7QAR8yF",
+                        "Dial": dial, "Language": "ar", "Module": "0", "Password": password
+                    })
+                });
+
+                const genTokenData = await genTokenResp.json();
+                const token = genTokenData?.Token;
+
+                if (!token) {
+                    showPopup("❌", "فشل في توليد توكن الأمان الخاص بالعملية!");
+                    return;
+                }
+
+                // 3. جلب الأسئلة (Get Questions)
+                const questionsUrl = proxyUrl + encodeURIComponent("https://services.orange.eg/APIs/Ramadan2024/api/RamadanOffers/Fawazeer/Questions");
+                const questionsResp = await fetch(questionsUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0' },
+                    body: JSON.stringify({ "Dial": dial, "Language": "ar", "Token": token })
+                });
+
+                const qData = await questionsResp.json();
+
+                if (qData.ErrorCode === 1) {
+                    showPopup("⚠️", "لقد حصلت على الفوازير اليوم بالفعل، جرب غداً 🥲");
+                    return;
+                } else if (qData.ErrorCode !== 0) {
+                    showPopup("❌", `خطأ: ${qData.ErrorDescription || 'غير معروف'}`);
+                    return;
+                }
+
+                const questions = qData.Questions;
+                if (!questions || questions.length === 0) {
+                    showPopup("❌", "لا توجد أسئلة متاحة حالياً.");
+                    return;
+                }
+
+                // استخراج الإجابات الصحيحة تلقائياً
+                let answers = [];
+                questions.forEach(q => {
+                    const correctAns = q.Answers.find(a => a.IsCorrect);
+                    if (correctAns) {
+                        answers.push({ "QuestionId": correctAns.QuestionId, "AnswerId": correctAns.Id });
+                    }
+                });
+
+                if (answers.length === 0) {
+                    showPopup("❌", "لم يتم العثور على إجابات صحيحة للأسئلة.");
+                    return;
+                }
+
+                // 4. الإرسال والحل التلقائي (Submit)
+                const submitUrl = proxyUrl + encodeURIComponent("https://services.orange.eg/APIs/Ramadan2024/api/RamadanOffers/Fawazeer/Submit");
+                const submitResp = await fetch(submitUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0' },
+                    body: JSON.stringify({ "Dial": dial, "Language": "ar", "Token": token, "Answers": answers })
+                });
+
+                const resultData = await submitResp.json();
+
+                if (resultData.ErrorDescription === "FawazeerSuccess") {
+                    showPopup("😁", "تم حل الفوازير بنجاح وتفعيل 250 ميجا مجاناً! <br><br> بواسطة مطور البوت @AMI_EG");
+                } else {
+                    showPopup("❌", `فشل الإرسال: ${resultData.ErrorDescription || 'حاول لاحقاً'}`);
+                }
+
+            } catch (error) {
+                showPopup("❌", "حدث خطأ غير متوقع أثناء الاتصال بالسيرفر، تأكد من اتصالك بالإنترنت.");
+                console.error(error);
+            }
+        });
+
+        // دوال التحكم في الـ Pop-up
+        const modal = document.getElementById('statusModal');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalMessage = document.getElementById('modalMessage');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+        function showLoadingPopup() {
+            modalIcon.innerHTML = "⏳";
+            modalMessage.innerHTML = "جاري الاتصال بسيرفرات أورنج وحل الأسئلة تلقائياً...";
+            modalCloseBtn.style.display = "none";
+            modal.classList.add('active');
+        }
+
+        function showPopup(icon, message) {
+            modalIcon.innerHTML = icon;
+            modalMessage.innerHTML = message;
+            modalCloseBtn.style.display = "inline-block";
+            modal.classList.add('active');
+        }
+
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
