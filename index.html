@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twist Music</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="glass-card">
+        <h1>👑 Twist Music 👑</h1>
+        <p class="subtitle">أهلاً بك في منصة تجميع نقاط Twist Music ❤️<br>متنساش تصلي علي النبي❤</p>
+
+        <!-- قسم القنوات -->
+        <div id="sub-section" class="section">
+            <h3>⚠️ يرجى الاشتراك في القنوات أولاً:</h3>
+            <div class="btn-group">
+                <a href="https://t.me/midooojiokjj" target="_blank" class="btn transparent-btn">📢 القناة الأولى</a>
+                <a href="https://t.me/elmido3958" target="_blank" class="btn transparent-btn">📢 القناة الثانية</a>
+                <a href="https://t.me/hamoteam300" target="_blank" class="btn transparent-btn">💬 مجموعة الشات</a>
+            </div>
+            <button onclick="checkSubscription()" class="btn main-btn">تحقق من الاشتراك 🔄</button>
+        </div>
+
+        <!-- قسم النموذج (يظهر بعد الاشتراك) -->
+        <div id="service-section" class="section hidden">
+            <div class="input-group">
+                <label>البريد الإلكتروني:</label>
+                <input type="email" id="email" placeholder="example@email.com" required>
+            </div>
+            <div class="input-group">
+                <label>كلمة السر:</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+            <button onclick="startProcess()" class="btn main-btn">ابدأ جمع النقاط ⚡</button>
+            <div id="status-msg" class="status-box hidden"></div>
+        </div>
+
+        <div class="footer">
+            <p>بواسطة المطور: <a href="https://t.me/AMI_EG" target="_blank">@AMI_EG</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
